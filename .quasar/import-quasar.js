@@ -17,7 +17,7 @@ import iconSet from 'quasar/icon-set/material-icons'
 
 import Vue from 'vue'
 
-import {Quasar,Notify,Dialog,QUploader} from 'quasar'
+import {Quasar,Notify,Dialog,QUploader,Loading} from 'quasar'
 
 
-Vue.use(Quasar, { config: {},lang: lang,iconSet: iconSet,plugins: {Notify,Dialog,QUploader} })
+Vue.use(Quasar, { config: {},lang: lang,iconSet: iconSet,plugins: {Notify,Dialog,QUploader,Loading} })
