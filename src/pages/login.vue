@@ -340,7 +340,16 @@ export default {
   },
   created() {
     if (this.loggedIn) {
-      this.$router.push("/page");
+      this.$router.push("/page").catch(err => {
+      // Ignore the vuex err regarding  navigating to the page they are already on.
+      if (
+        err.name !== 'NavigationDuplicated' &&
+        !err.message.includes('Avoided redundant navigation to current location')
+      ) {
+        // But print any other errors to the console
+        logError(err);
+      }
+    });
     }
   },
 
@@ -394,7 +403,16 @@ export default {
       if (this.user.email && this.user.password) {
         this.$store.dispatch("auth/login", this.user).then(
           () => {
-            this.$router.push("/page");
+            this.$router.push("/page").catch(err => {
+            // Ignore the vuex err regarding  navigating to the page they are already on.
+            if (
+              err.name !== 'NavigationDuplicated' &&
+              !err.message.includes('Avoided redundant navigation to current location')
+            ) {
+              // But print any other errors to the console
+              logError(err);
+            }
+          });
           },
           error => {
             this.loading = false;
