@@ -1,5 +1,5 @@
 import axios from "axios";
-const url = "http://api.allorigins.win/get?url=https://ekatra-backend-mvp-1.herokuapp.com/";
+const url = "https://ekatra-backend-mvp-1.herokuapp.com/";
 // const url = "http://127.0.0.1:5000/api/";
 
 class Auth {
@@ -9,7 +9,7 @@ class Auth {
           email: user.email,
           password: user.password
         });
-      console.log(response.data.token);
+      // console.log(response.data.token);
       if (response.data.token) {
         localStorage.setItem('user', JSON.stringify(response.data));
       }

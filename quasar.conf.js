@@ -72,9 +72,9 @@ module.exports = function (/* ctx */) {
       https: false,
       port: 8084,
       open: true, // opens browser window automatically
-      allowedHosts: ['https://ekatra-backend-mvp-1.herokuapp.com/'],
+      allowedHosts: ['127.0.0.1:5000'],
       proxy: {
-        '/api': 'https://ekatra-backend-mvp-1.herokuapp.com/'
+        '/api': '127.0.0.1:5000'
       },
       before (app) {
         const cors = require('cors')
@@ -83,8 +83,8 @@ module.exports = function (/* ctx */) {
         app.use(cors())
       },
       headers: {
-        'Access-Control-Allow-Methods': 'GET, POST, PUT, PATCH, DELETE, OPTIONS',
-        'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+        // 'Access-Control-Allow-Methods': 'GET, POST, PUT, PATCH, DELETE, OPTIONS',
+        // 'Access-Control-Allow-Headers': 'Content-Type, Authorization',
         'Access-Control-Allow-Origin': '*',
       },
     },
